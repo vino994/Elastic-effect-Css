@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-color: #242424;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+.elastic{
+    width: 400px;
+    height: 400px;
+    background-color: #333;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+.elastic::before{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    content: '';
+     border-radius: 50%;
+     left: 0;
+     bottom: 60px;
+     z-index: 999;
+}
+.elastic::after{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    content: '';
+     border-radius: 50%;
+     right: 0;
+     bottom: 60px;
+     z-index: 999;
+}
+.elastic svg{
+    position: absolute;
+    width: 400px;
+    height: 150px;
+    fill: none;
+}
+.elastic svg path{
+    width: 100%;
+    stroke: aqua;
+    filter: blur(1px);
+    d:path('M 10 80 Q 190 80 390 80');
+    stroke-width: 10;
+    stroke-linecap: round;
+    animation: animateBorder 2.5s linear infinite,animateColor 2.5s linear infinite;
+}
+@keyframes animateBorder{
+    0%,100%{
+        d:path('M 10 80 Q 190 80 390 80');
+    }
+    10%{
+        d:path('M 10 80 Q 190 160 390 80');
+    }
+    20%{
+        d:path('M 10 80 Q 190 20 390 80');
+    }
+    30%{
+        d:path('M 10 80 Q 190 120 390 80');
+    }
+    35%{
+        d:path('M 10 80 Q 190 80 390 80');
+    }
+    40%{
+        d:path('M 10 80 Q 190 20 390 80');
+    }
+    50%{
+        d:path('M 10 80 Q 190 100 390 80');
+    }
+    55%{
+        d:path('M 10 80 Q 190 90 390 80');
+    }
+    60%{
+        d:path('M 10 80 Q 190 80 390 80');
+    }
+}
+@keyframes animateColor {
+    0%{
+        stroke: aqua; 
+    }
+    100%{
+        stroke: rgb(34, 255, 0); 
+    }
+}
+.ball{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: inset -15px 20px rgba(255,255,255,0.4);
+    animation: animateBall 2.5s linear infinite;
+}
+@keyframes animateBall {
+    0%,100%{
+        transform: translateY(-70.5px);
+    }
+  
+    50%{
+        transform: translateY(-350px);
+    }
+}
